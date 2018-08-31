@@ -81,7 +81,7 @@ function startMatch() {
 
 //check words for match
 function matchWords() {
-  return currentWord.innerHTML === wordInput.value
+  return currentWord.innerHTML === wordInput.value.toLowerCase()
     ? (message.innerHTML = "Correct!")
     : (message.innerHTML = "");
 }
