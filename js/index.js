@@ -8,7 +8,7 @@ let game = {
   }
 };
 
-let time = game.difficulty.easy;
+let time = game.difficulty.intermediate;
 let score = 0;
 let isPlaying;
 
@@ -64,7 +64,7 @@ function init() {
 function startMatch() {
   if (matchWords()) {
     isPlaying = true;
-    time = game.difficulty.easy;
+    time = game.difficulty.intermediate;
     pickWord(words);
     wordInput.value = "";
     score++;
