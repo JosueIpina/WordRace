@@ -1,3 +1,4 @@
+//on load
 window.addEventListener("load", init);
 
 let game = {
