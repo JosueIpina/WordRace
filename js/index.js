@@ -68,7 +68,6 @@ function startMatch() {
     pickWord(words);
     wordInput.value = "";
     score++;
-    console.log(time);
   }
 
   if (score === -1) {
