@@ -17,6 +17,13 @@
 
       <div class="col-md-6 mx-auto card card-body">
         <h5 class="display-4 card-title">WordRace</h5>
+        <p class="lead">Select your difficulty level <span class="text-muted mb-1">(can't change during a game)</span>:
+        </p>
+        <select id="difficultySelect" class="custom-select mb-2">
+          <option value="easy" selected>Easy</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="hard">Hard</option>
+        </select>
         <p class="lead">Type the given word within
           <span id="seconds" class="text-danger">5</span> seconds:</p>
         <h2 class="display-4 mb-5" id="current-word"></h2>
@@ -48,7 +55,8 @@
         </div>
       </div>
     </div>
-
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
     <script src="./js/index.js"></script>
 </body>
 

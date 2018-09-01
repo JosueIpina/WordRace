@@ -1,5 +1,13 @@
 //on load
 window.addEventListener("load", init);
+// DOM Elements
+const wordInput = document.querySelector("#word-input");
+const currentWord = document.querySelector("#current-word");
+const scoreDisplay = document.querySelector("#score");
+const timeDisplay = document.querySelector("#time");
+const message = document.querySelector("#message");
+const seconds = document.querySelector("#seconds");
+const difficultySelect = document.getElementById("difficultySelect");
 
 let game = {
   difficulty: {
@@ -9,17 +17,15 @@ let game = {
   }
 };
 
-let time = game.difficulty.intermediate;
+let difficulty = game.difficulty[difficultySelect.value];
+
+difficultySelect.addEventListener("change", function(e) {
+  difficulty = game.difficulty[e.target.value];
+});
+
+let time = difficulty;
 let score = 0;
 let isPlaying;
-
-// DOM Elements
-const wordInput = document.querySelector("#word-input");
-const currentWord = document.querySelector("#current-word");
-const scoreDisplay = document.querySelector("#score");
-const timeDisplay = document.querySelector("#time");
-const message = document.querySelector("#message");
-const seconds = document.querySelector("#seconds");
 
 const words = [
   "hat",
@@ -65,10 +71,11 @@ function init() {
 function startMatch() {
   if (matchWords()) {
     isPlaying = true;
-    time = game.difficulty.intermediate;
+    time = difficulty;
     pickWord(words);
     wordInput.value = "";
     score++;
+    difficultySelect.setAttribute("disabled", "disabled");
   }
 
   if (score === -1) {
@@ -88,6 +95,7 @@ function matchWords() {
 
 //pick and render random word
 function pickWord(words) {
+  seconds.innerHTML = time;
   const randomIndex = Math.floor(Math.random() * words.length);
   currentWord.innerHTML = words[randomIndex];
 }
@@ -109,5 +117,6 @@ function checkStatus() {
       scoreDisplay.innerHTML
     } points!`;
     score = -1;
+    difficultySelect.removeAttribute("disabled");
   }
 }
